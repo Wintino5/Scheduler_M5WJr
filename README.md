@@ -21,5 +21,5 @@ MIT License
 
 The following image shows the web application's functionality and appearance:
 
-![The Horiseon webpage includes a navigation bar, a header image, and cards with text and images at the bottom of the page.](./assets/images/Screenshot%202023-12-29%20230318.png)
+![This webpage includes the scheduler.](./assets/images/Scheduler.png)
 
