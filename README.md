@@ -6,7 +6,7 @@ In this project we created a workday scheduler. The styling was done with CSS an
 
 ## Repository
 
-Link to deployed code: 
+Link to deployed code: https://wintino5.github.io/Scheduler_M5WJr/
 
 ## Technologies
 
