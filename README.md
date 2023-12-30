@@ -21,5 +21,5 @@ MIT License
 
 The following image shows the web application's functionality and appearance:
 
-![This webpage includes the scheduler.](./assets/images/Scheduler.png)
+![This webpage includes the scheduler.](./Assets/images/Scheduler.png)
 
