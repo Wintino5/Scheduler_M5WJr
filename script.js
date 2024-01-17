@@ -4,32 +4,34 @@
 
 let today = dayjs().format("dddd, MMMM D YYYY");
 
-let now = dayjs().format("H A");
+let now = dayjs().format("h A");
+console.log(now);
 
 $('#currentDay').text(today);
 
 let timeSection = [
   { time: "9 AM",
-    event: ''},
+  event: ''},
   { time: "10 AM",
-    event: ''},
+  event: ''},
   { time: "11 AM",
-    event: ''},
+  event: ''},
   { time: "12 PM",
-    event: ''},
+  event: ''},
   { time: "1 PM",
-    event: ''},
+  event: ''},
   { time: "2 PM",
-    event: ''},
+  event: ''},
   { time: "3 PM",
-    event: ''},
+  event: ''},
   { time: "4 PM",
-    event: ''},
+  event: ''},
   { time: "5 PM",
-    event: ''},
+  event: ''},
 ]
 
 $(function () {
+
   var events = JSON.parse(localStorage.getItem('workDay'));
   
   if (events) {
@@ -40,8 +42,14 @@ $(function () {
   
   timeSection.forEach(function(timeBlock, index) {
     let timeLabel = timeBlock.time;
-    let blockColor = colorRow(timeLabel); 
+    // console.log(timeLabel);
+    let timeNumber = timeLabel.substring(0, 2);
+    let blockNumber = now.substring(0, 2);
+    console.log(blockNumber);
+    // console.log(timeNumber);
+    let blockColor = colorRow(timeNumber, blockNumber);
 
+    // console.log(blockColor);
     
     let row = 
           '<div class ="time-block" id="' +
@@ -57,18 +65,20 @@ $(function () {
           $(".container-lg").append(row);
         });
 
-        function colorRow(time) {
-    let doNow = dayjs(now, 'H A');
-    let doEntry = dayjs(time, 'H A');
-    if (doNow.isBefore(doEntry) === true) {
+  function colorRow(time, now) {
+    let doNow = dayjs(now, 'h A');
+    let doEntry = dayjs(time, 'h A');
+    console.log("doNow", doNow);
+      console.log("doEntry", doEntry);
+    if (doNow.isBefore(doEntry)) {
       return "future"
-    } else if (doNow.isAfter(doEntry) === true ) {
+    } else if (doNow.isAfter(doEntry)) {
       return "past";
     } else {
       return "present";
     }
-  }
-  
+  } 
+
   $('.saveBtn').on('click', function () {
     let blockID = parseInt(
       $(this)
